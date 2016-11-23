@@ -1,3 +1,4 @@
+// Get current time with AM/PM format
 function getTime() {
     var ap = "";
     var d = new Date();
