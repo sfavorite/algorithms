@@ -1,3 +1,7 @@
+// To compile using gcc or clang
+// gcc -o bubble main.c
+// clang -o bubble main.c
+
 #include <stdio.h>
 #include <stdlib.h>
 
