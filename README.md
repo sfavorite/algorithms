@@ -9,7 +9,7 @@ that I have not included in this list (i.g. reversing a string).
 ## Algorithms
 
 Collatz Conjecture
-Collatz Conjecture with parity Sequence
+Collatz Conjecture with parity sequence
 Epsilon Greedy
 Sigmoid Function
 Factorial
