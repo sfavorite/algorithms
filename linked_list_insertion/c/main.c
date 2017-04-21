@@ -113,7 +113,7 @@ int remove_by_index(node_t ** head, int n) {
     return retvalue;
 }
 
-int remove_by_valueue(node_t ** head, int valueue) {
+int remove_by_value(node_t ** head, int valueue) {
     node_t * current = * head;
     node_t * temp_node = NULL;
 
