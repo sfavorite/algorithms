@@ -12,7 +12,7 @@ int gcd(int u, int v) {
             u = v;
             v = temp;
         }
-        printf("%d % %d = %d\n", u, v, u % v);
+        printf("%d %% %d = %d\n", u, v, u % v);
         // New value of u
         u = u % v;
     }
