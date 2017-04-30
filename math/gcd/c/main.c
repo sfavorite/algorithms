@@ -1,5 +1,4 @@
 // Get the greatest common divisor of two positive integers
-// using the
 #include <stdio.h>
 
 
