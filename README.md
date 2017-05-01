@@ -8,15 +8,15 @@ that I have not included in this list (i.g. reversing a string).
 
 ## Algorithms
 
-Collatz Conjecture
-Collatz Conjecture with parity sequence
-Epsilon Greedy
-Sigmoid Function
-Factorial
-Factorial Recursive
-Factorization
-Greatest Common Divisor
-Greatest Common Divisor Optimized
-Insertion Sort (linked list version)
-Karatsuba
-Linked Lists (single)
+* Collatz Conjecture
+* Collatz Conjecture with parity sequence
+* Epsilon Greedy
+* Sigmoid Function
+* Factorial
+* Factorial Recursive
+* Factorization
+* Greatest Common Divisor
+* Greatest Common Divisor Optimized
+* Insertion Sort (linked list version)
+* Karatsuba
+* Linked Lists (single)
