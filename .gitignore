@@ -44,6 +44,7 @@
 
 # Executable by name
 llist
+dllist
 bubble
 collatz
 fact
