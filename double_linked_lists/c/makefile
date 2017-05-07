@@ -6,7 +6,7 @@ CFLAGS=-c -Wall
 
 all: dllist
 
-llist: main.o
+dllist: main.o
 	$(CC)  main.o -o dllist
 
 main.o: main.c
