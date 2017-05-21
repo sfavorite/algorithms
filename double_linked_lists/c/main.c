@@ -7,7 +7,16 @@ typedef struct node {
     struct node * prev;
 } node_t;
 
-void Initialize() {
+void initialize(struct node ** head, struct node ** tail) {
+
+    * head = malloc(sizeof(*head));
+    * tail = malloc(sizeof(*tail));
+
+    (* head)->next = (* tail);
+    (* head)->prev = NULL;
+
+    (* tail)->next = NULL;
+    (* tail)->prev = NULL;
 
 }
 
@@ -47,6 +56,13 @@ void ListDestroy() {
 }
 
 int main() {
+
+    node_t * head = NULL;
+    node_t * tail = NULL;
+
+    initialize(&head, &tail);
+
+
 
     return EXIT_SUCCESS;
 }
