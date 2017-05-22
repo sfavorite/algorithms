@@ -29,7 +29,7 @@ void InsertAtHead() {
 
 }
 
-void InsertAtTail() {
+void InsertAtTail(struct node * tail, int new_value) {
 
 }
 
@@ -62,11 +62,11 @@ int main() {
     node_t * head = NULL;
     node_t * tail = NULL;
 
-    initialize(&head, &tail);
+    Initialize(&head, &tail);
 
     head->value = 1;
 
-
+    InsertAtTail(tail, 2);
 
     return EXIT_SUCCESS;
 }
