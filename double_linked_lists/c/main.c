@@ -7,7 +7,8 @@ typedef struct node {
     struct node * prev;
 } node_t;
 
-void initialize(struct node ** head, struct node ** tail) {
+// Initialize the Double Linked List
+void Initialize(struct node ** head, struct node ** tail) {
 
     * head = malloc(sizeof(*head));
     * tail = malloc(sizeof(*tail));
@@ -55,12 +56,15 @@ void ListDeleteNode() {
 void ListDestroy() {
 }
 
+
 int main() {
 
     node_t * head = NULL;
     node_t * tail = NULL;
 
     initialize(&head, &tail);
+
+    head->value = 1;
 
 
 
