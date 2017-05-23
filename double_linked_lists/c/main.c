@@ -17,7 +17,7 @@ void Initialize(struct node ** head, struct node ** tail) {
     (* head)->prev = NULL;
 
     (* tail)->next = NULL;
-    (* tail)->prev = NULL;
+    (* tail)->prev = (* head);
 
 }
 
@@ -30,6 +30,13 @@ void InsertAtHead() {
 }
 
 void InsertAtTail(struct node * tail, int new_value) {
+node_t * new_node = NULL;
+
+new_node = malloc(sizeof(new_node));
+tail->next = new_node;
+tail = new_node;
+tail->value = new_value;
+
 
 }
 
@@ -67,6 +74,7 @@ int main() {
     head->value = 1;
 
     InsertAtTail(tail, 2);
+
 
     return EXIT_SUCCESS;
 }
