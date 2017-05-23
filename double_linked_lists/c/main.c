@@ -11,13 +11,11 @@ typedef struct node {
 void Initialize(struct node ** head, struct node ** tail) {
 
     * head = malloc(sizeof(*head));
-    * tail = malloc(sizeof(*tail));
 
     (* head)->next = (* tail);
     (* head)->prev = NULL;
 
-    (* tail)->next = NULL;
-    (* tail)->prev = (* head);
+    (* tail) = NULL;
 
 }
 
@@ -29,20 +27,17 @@ void InsertAtHead() {
 
 }
 
-void InsertAtTail(struct node * tail, int new_value) {
-node_t * new_node = NULL;
-
-new_node = malloc(sizeof(new_node));
-tail->next = new_node;
-tail = new_node;
-tail->value = new_value;
-
+void InsertAtTail() {
 
 }
 
-void ListPrint() {
-
+void ListPrint(node_t * current) {
+    while (current != NULL) {
+        printf("%d\n", current->value);
+        current = current->next;
+    }
 }
+
 
 void ReversePrint() {
 
@@ -73,8 +68,7 @@ int main() {
 
     head->value = 1;
 
-    InsertAtTail(tail, 2);
-
+    ListPrint(head);
 
     return EXIT_SUCCESS;
 }
