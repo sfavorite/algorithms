@@ -39,8 +39,11 @@ void ListPrint(node_t * current) {
 }
 
 
-void ReversePrint() {
-
+void ReversePrint(node_t * current) {
+    while (current != NULL) {
+        printf("%d\n", current->value);
+        current = current->next;
+    }
 }
 
 void InsertBefore() {
