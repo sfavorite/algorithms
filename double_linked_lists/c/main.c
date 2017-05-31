@@ -45,7 +45,7 @@ void InsertAtTail(struct node ** tail, struct node ** head, int new_value) {
 
         // Point tail next to NULL
         (* tail)->next = NULL;
-        
+
         // Point head next to tail
         (* head)->next = (* tail);
 
@@ -84,10 +84,12 @@ void ReversePrint(node_t * current) {
     }
 }
 
+// Before given node
 void InsertBefore() {
 
 }
 
+// After given node
 void InsertAfter() {
 
 }
