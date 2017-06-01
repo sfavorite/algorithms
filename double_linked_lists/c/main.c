@@ -98,7 +98,17 @@ void ListDeleteNode() {
 
 }
 
-void ListDestroy() {
+void ListDestroy(node_t ** head) {
+    node_t * temp = NULL;
+
+
+    while(* head) {
+        printf("%d\n", (* head)->value);
+        temp = * head;
+        (* head) = (* head)->next;
+        free(temp);
+    }
+    (* head) = NULL;
 }
 
 
@@ -116,6 +126,7 @@ int main() {
     InsertAtTail(&tail, &head, 2);
 
     ListPrint(head);
+    ListDestroy(&head);
     printf("Exit");
 
     return EXIT_SUCCESS;
