@@ -19,7 +19,7 @@ void Initialize(struct node ** head, struct node ** tail) {
 
 }
 
-void ListNewNode() {
+void NewNode() {
 
 }
 
@@ -94,7 +94,7 @@ void InsertAfter() {
 
 }
 
-void ListDeleteNode() {
+void DeleteNode() {
 
 }
 
