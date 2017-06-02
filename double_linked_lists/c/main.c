@@ -98,6 +98,18 @@ void DeleteNode() {
 
 }
 
+// Find the node in the i'th position in the list
+node_t * NodeInPosition(node_t * current, int position) {
+    int i = 0;
+
+    while (current && i < position) {
+        ++i;
+        current = current->next;
+    }
+
+    return current;
+}
+
 void ListDestroy(node_t ** head) {
     node_t * temp = NULL;
 
@@ -116,6 +128,7 @@ int main() {
 
     node_t * head = NULL;
     node_t * tail = NULL;
+    node_t * temp = malloc(sizeof(node_t));
 
     Initialize(&head, &tail);
 
@@ -126,6 +139,17 @@ int main() {
     InsertAtTail(&tail, &head, 2);
 
     ListPrint(head);
+
+    int position = 200;
+    temp = NodeInPosition(head, position);
+    if (temp) {
+        printf("Value is %d\n", temp->value);
+    } else {
+        printf("List doesn't have a position %i\n", position);
+    }
+    temp = NULL;
+    free(temp);
+
     ListDestroy(&head);
     printf("Exit");
 
