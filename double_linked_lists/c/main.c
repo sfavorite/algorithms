@@ -151,7 +151,7 @@ int main() {
     free(temp);
 
     ListDestroy(&head);
-    printf("Exit");
+    
 
     return EXIT_SUCCESS;
 }
