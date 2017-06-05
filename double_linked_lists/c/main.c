@@ -115,7 +115,7 @@ void ListDestroy(node_t ** head) {
 
 
     while(* head) {
-        printf("%d\n", (* head)->value);
+        printf("Delete: %d\n", (* head)->value);
         temp = * head;
         (* head) = (* head)->next;
         free(temp);
@@ -128,7 +128,7 @@ int main() {
 
     node_t * head = NULL;
     node_t * tail = NULL;
-    node_t * temp = malloc(sizeof(node_t));
+    node_t * temp = NULL;
 
     Initialize(&head, &tail);
 
@@ -148,10 +148,10 @@ int main() {
         printf("List doesn't have a position %i\n", position);
     }
     temp = NULL;
-    free(temp);
-
+ 
     ListDestroy(&head);
-    
+
+
 
     return EXIT_SUCCESS;
 }
