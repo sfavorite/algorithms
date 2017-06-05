@@ -19,10 +19,6 @@ void Initialize(struct node ** head, struct node ** tail) {
 
 }
 
-void NewNode() {
-
-}
-
 void InsertAtHead() {
 
 }
@@ -80,7 +76,7 @@ void ListPrint(node_t * current) {
 void ReversePrint(node_t * current) {
     while (current != NULL) {
         printf("%d\n", current->value);
-        current = current->next;
+        current = current->prev;
     }
 }
 
@@ -126,32 +122,44 @@ void ListDestroy(node_t ** head) {
 
 int main() {
 
-    node_t * head = NULL;
-    node_t * tail = NULL;
-    node_t * temp = NULL;
+ 	node_t * head = NULL;
+	node_t * tail = NULL;
+	//node_t * temp = malloc(sizeof(node_t));
+	node_t * temp = NULL;
 
-    Initialize(&head, &tail);
+	Initialize(&head, &tail);
 
-    head->value = 1;
+	head->value = 1;
 
-    ListPrint(head);
-
-    InsertAtTail(&tail, &head, 2);
-
-    ListPrint(head);
-
-    int position = 200;
-    temp = NodeInPosition(head, position);
-    if (temp) {
-        printf("Value is %d\n", temp->value);
-    } else {
-        printf("List doesn't have a position %i\n", position);
-    }
-    temp = NULL;
- 
-    ListDestroy(&head);
+	InsertAtTail(&tail, &head, 2);
+	printf("%p\n", &tail);
+	if (tail->next != NULL) {
+		printf("%d\n", tail->value);
+	}
+	ListPrint(head);
 
 
+	InsertAtTail(&tail, &head, 3);
 
-    return EXIT_SUCCESS;
+	ReversePrint(tail);
+	ListPrint(head);
+
+	int position = 2;
+	temp = NodeInPosition(head, position);
+
+	if (temp) {
+		printf("Value is %d\n", temp->value);
+	}
+	else {
+		printf("List doesn't have position %i\n", position);
+	}
+	// Set temp to NULL and free the memory of our temp pointer.
+	temp = NULL;
+	free(temp);
+
+	ListDestroy(&head);
+
+
+
+	return EXIT_SUCCESS;
 }
