@@ -19,7 +19,25 @@ void Initialize(struct node ** head, struct node ** tail) {
 
 }
 
-void InsertAtHead() {
+void InsertAtHead(struct node ** head, struct node ** tail, int new_value) {
+	node_t * new_node = NULL;
+
+	// Is the list initialized?
+	if ((*head) == NULL) {
+		Initialize(head, tail);
+		(*head)->value = new_value;
+	} // Add to the tail if it is NULL
+	else {
+		// Allocate memory for the new head
+		new_node = malloc(sizeof(node_t));
+		new_node->prev = NULL;
+		new_node->next = (*head);
+
+		new_node->value = new_value;
+
+		(*head)->prev = new_node;
+		(*head) = new_node;
+	}
 
 }
 
@@ -140,7 +158,7 @@ int main() {
 
 
 	InsertAtTail(&tail, &head, 3);
-
+    InsertAtHead(&head, &tail, 0);
 	ReversePrint(tail);
 	ListPrint(head);
 
@@ -159,7 +177,5 @@ int main() {
 
 	ListDestroy(&head);
 
-
-
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
