@@ -96,7 +96,7 @@ void DeleteNode() {
 
 // Find the node in the i'th position in the list
 node_t * NodeInPosition(node_t * current, int position) {
-    int i = 0;
+    int i = 1;
 
     while (current && i < position) {
         ++i;
