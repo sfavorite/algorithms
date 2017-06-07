@@ -108,9 +108,7 @@ void InsertAfter() {
 
 }
 
-void DeleteNode() {
 
-}
 
 // Find the node in the i'th position in the list
 node_t * NodeInPosition(node_t * current, int position) {
@@ -122,6 +120,43 @@ node_t * NodeInPosition(node_t * current, int position) {
     }
 
     return current;
+}
+
+// Delete the node at position
+int DeleteNode(node_t ** current, int position) {
+	node_t * temp;
+
+	if ((*current) == NULL) {
+		return 0;
+	}
+	// Get the node we want to delete
+	node_t * node_to_delete = NodeInPosition((* current), position);
+
+	printf("Value %d\n", node_to_delete->value);
+
+	// Is this the head?
+	if (node_to_delete->prev == NULL) {
+		printf("Deleting head\n");
+		(* current) = (* current)->next;
+		(* current)->prev = NULL;
+
+	} // Is this the tail?
+	else if (node_to_delete->next == NULL) {
+		printf("Deleteing tail\n");
+		node_to_delete->prev->next = NULL;
+	} // Delete a 'middle' node
+	else {
+		temp = node_to_delete;
+
+		// Point previous node to node_to_delete's next node
+		node_to_delete->prev->next = temp->next;
+		// Point next node to node_to_delet's prev node
+		node_to_delete->next->prev = temp->prev;
+	}
+
+	// Free the memory for deleted node
+	free(node_to_delete);
+	return 0;
 }
 
 void ListDestroy(node_t ** head) {
