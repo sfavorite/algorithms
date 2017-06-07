@@ -136,13 +136,11 @@ int DeleteNode(node_t ** current, int position) {
 
 	// Is this the head?
 	if (node_to_delete->prev == NULL) {
-		printf("Deleting head\n");
-		(* current) = (* current)->next;
-		(* current)->prev = NULL;
+        node_to_delete = node_to_delete->next;
+        node_to_delete->prev = NULL;
 
 	} // Is this the tail?
 	else if (node_to_delete->next == NULL) {
-		printf("Deleteing tail\n");
 		node_to_delete->prev->next = NULL;
 	} // Delete a 'middle' node
 	else {
