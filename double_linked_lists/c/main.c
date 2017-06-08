@@ -110,9 +110,42 @@ node_t * NodeInPosition(node_t * current, int position) {
     return current;
 }
 
-// Before given node
-void InsertBefore() {
+// Insert before given node
+int InsertBefore(node_t ** current, int position, int new_value) {
+	node_t * new_node = NULL;
+	node_t * before_node = NULL;
 
+	// Is the list initialized?
+	if (current == NULL) {
+		return -1;
+	}
+	// Get the node in position
+	before_node = NodeInPosition((* current), position);
+
+	if (before_node == NULL) {
+		return -1;
+	}
+
+	// Allocate memory for the new node and set value
+	new_node = malloc(sizeof(node_t));
+	new_node->value = new_value;
+
+	// Are we setting a new head
+	if (before_node->prev == NULL) {
+		new_node->next = (* current);
+		new_node->prev = NULL;
+		(* current)->prev = new_node;
+		(*current) = new_node;
+
+	} else {
+		new_node->prev = before_node->prev;
+		new_node->next = before_node;
+
+		// Point the node before 'before_node' to the new node
+		before_node->prev->next = new_node;
+		// Point 'before_node' prev to the new node
+		before_node->prev = new_node;
+	}
 }
 
 // After given node
