@@ -98,18 +98,6 @@ void ReversePrint(node_t * current) {
     }
 }
 
-// Before given node
-void InsertBefore() {
-
-}
-
-// After given node
-void InsertAfter() {
-
-}
-
-
-
 // Find the node in the i'th position in the list
 node_t * NodeInPosition(node_t * current, int position) {
     int i = 1;
@@ -120,6 +108,16 @@ node_t * NodeInPosition(node_t * current, int position) {
     }
 
     return current;
+}
+
+// Before given node
+void InsertBefore() {
+
+}
+
+// After given node
+void InsertAfter() {
+
 }
 
 // Delete the node at position
