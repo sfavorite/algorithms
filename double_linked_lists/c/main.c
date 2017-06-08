@@ -146,6 +146,7 @@ int InsertBefore(node_t ** current, int position, int new_value) {
 		// Point 'before_node' prev to the new node
 		before_node->prev = new_node;
 	}
+    return 0;
 }
 
 // After given node
