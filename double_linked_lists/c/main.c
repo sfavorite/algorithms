@@ -122,6 +122,7 @@ int InsertBefore(node_t ** current, int position, int new_value) {
 	// Get the node in position
 	before_node = NodeInPosition((* current), position);
 
+    // The list doesn't have this many nodes
 	if (before_node == NULL) {
 		return -1;
 	}
