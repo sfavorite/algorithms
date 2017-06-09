@@ -150,9 +150,44 @@ int InsertBefore(node_t ** current, int position, int new_value) {
     return 0;
 }
 
-// After given node
-void InsertAfter() {
+// Insert after given node
+int InsertAfter(node_t ** current, int position, int new_value) {
+	node_t * new_node = NULL;
+	node_t * after_node = NULL;
 
+	// Is the list initialized?
+	if (current == NULL) {
+		return -1;
+	}
+	// Get the node in position
+	after_node = NodeInPosition((*current), position);
+
+	if (after_node == NULL) {
+		return -1;
+	}
+
+	// Allocate memory for the new node and set value
+	new_node = malloc(sizeof(node_t));
+	new_node->value = new_value;
+
+	// Are we setting a new tail
+	if (after_node->next == NULL) {
+		new_node->prev = after_node;
+		new_node->next = NULL;
+		after_node->next = new_node;
+
+	}
+	else {
+		new_node->prev = after_node->prev;
+		new_node->next = after_node;
+
+		// Point the node before 'before_node' to the new node
+		after_node->prev->next = new_node;
+		// Point 'before_node' prev to the new node
+		after_node->prev = new_node;
+	}
+
+	return 0;
 }
 
 // Delete the node at position
@@ -165,15 +200,17 @@ int DeleteNode(node_t ** current, int position) {
 	// Get the node we want to delete
 	node_t * node_to_delete = NodeInPosition((* current), position);
 
-	printf("Value %d\n", node_to_delete->value);
+	printf("Delete position %d, with value %d\n", position, node_to_delete->value);
 
 	// Is this the head?
 	if (node_to_delete->prev == NULL) {
-        node_to_delete = node_to_delete->next;
-        node_to_delete->prev = NULL;
+		printf("Deleting head\n");
+		(* current) = (* current)->next;
+		(* current)->prev = NULL;
 
 	} // Is this the tail?
 	else if (node_to_delete->next == NULL) {
+		printf("Deleteing tail\n");
 		node_to_delete->prev->next = NULL;
 	} // Delete a 'middle' node
 	else {
@@ -206,7 +243,7 @@ void ListDestroy(node_t ** head) {
 
 int main() {
 
- 	node_t * head = NULL;
+	node_t * head = NULL;
 	node_t * tail = NULL;
 	//node_t * temp = malloc(sizeof(node_t));
 	node_t * temp = NULL;
@@ -224,15 +261,15 @@ int main() {
 
 
 	InsertAtTail(&tail, &head, 3);
-    InsertAtHead(&head, &tail, 0);
+	InsertAtHead(&head, &tail, 0);
 	ReversePrint(tail);
 	ListPrint(head);
 
-	int position = 2;
+	int position = 3;
 	temp = NodeInPosition(head, position);
 
 	if (temp) {
-		printf("Value is %d\n", temp->value);
+		printf("Value %d is in the %d position\n", temp->value, position);
 	}
 	else {
 		printf("List doesn't have position %i\n", position);
@@ -240,8 +277,22 @@ int main() {
 	// Set temp to NULL and free the memory of our temp pointer.
 	temp = NULL;
 	free(temp);
+	InsertBefore(&head, 2, -2);
+	ListPrint(head);
+	InsertBefore(&head, 1, -3);
+	InsertBefore(&head, 7, -4);
+	printf("-----------------\n");
+	ListPrint(head);
+	printf("-----------------\n");
+	InsertAfter(&head, 6, -4);
+	InsertAfter(&head, 3, -5);
+	ListPrint(head);
 
+	DeleteNode(&head, 2);
+	DeleteNode(&head, 1);
+	DeleteNode(&head, 2);
 	ListDestroy(&head);
+	DeleteNode(&head, 2);
 
-    return EXIT_SUCCESS;
+	return EXIT_SUCCESS;
 }
