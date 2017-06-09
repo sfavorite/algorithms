@@ -230,7 +230,7 @@ int DeleteNode(node_t ** current, int position) {
 void ListDestroy(node_t ** head) {
     node_t * temp = NULL;
 
-
+    printf("Deleteing whole list.");
     while(* head) {
         printf("Delete: %d\n", (* head)->value);
         temp = * head;
