@@ -22,6 +22,11 @@ class Node:
         return str(self.data)
 
 
+class LinkedList():
+    def __init__(self):
+        self.length = 0
+        self. head = None
+
 
 node1 = Node(1)
 node2 = Node(2)
