@@ -31,12 +31,19 @@ class LinkedList(object):
         return self.head == None
 
     # Insert a node at head of list
-    def push(self, data):
+    def InsertAtHead(self, data):
         new_node = Node(data)
         new_node.setNext(self.head)
         self.head = new_node
 
-    def pop(self, data):
+    def InsertAtTail(self, data):
+        pass
+
+
+    def DeleteNode(self, data):
+        pass
+
+    def ListDestroy(self, data):
         pass
 
     # Compute the number of nodes in the list
@@ -59,6 +66,6 @@ class LinkedList(object):
 
 List = LinkedList()
 List.printList()
-List.push('A')
-List.push('B')
+List.InsertAtHead('A')
+List.InsertAtHead('B')
 List.printList()
