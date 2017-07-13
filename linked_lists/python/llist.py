@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import gc
 
 class Node(object):
 
@@ -8,6 +9,9 @@ class Node(object):
 
     def __str__(self):
         return str(self.data)
+
+    def __del__(self):
+        pass
 
     def getData(self):
         return self.data
@@ -26,6 +30,9 @@ class LinkedList(object):
 
     def __init__(self):
         self.head = None
+
+    def __del__(self):
+        self.EmptyList()
 
     def isEmpty(self):
         return self.head == None
@@ -52,8 +59,15 @@ class LinkedList(object):
     def DeleteNode(self, data):
         pass
 
-    def ListDestroy(self, data):
-        pass
+    def EmptyList(self):
+        print("Starting empty list")
+        if (self.head):
+            current = self.head
+            while (current):
+                self.head = current.getNext()
+                del current
+                current = self.head
+        return 'List now empty'
 
     # Compute the number of nodes in the list
     def size(self):
@@ -84,3 +98,14 @@ print('-------------')
 List.InsertAtTail('C')
 List.printList()
 print('-------------')
+List.EmptyList()
+print('Size: ', List.size())
+List.printList()
+
+# Force garbage collection
+#gc.collect()
+oldcounts = gc.get_count()
+#del List
+gc.collect()
+newcounts = gc.get_count()
+print(oldcounts, newcounts)
