@@ -37,8 +37,17 @@ class LinkedList(object):
         self.head = new_node
 
     def InsertAtTail(self, data):
-        pass
+        current = self.head
 
+        new_node = Node(data)
+        # If list empty set new node as head
+        if (not self.head):
+            self.head = new_node
+        # Find the tail
+        else:
+            while current.getNext():
+                current = current.getNext()
+            current.setNext(new_node )
 
     def DeleteNode(self, data):
         pass
@@ -65,7 +74,13 @@ class LinkedList(object):
             current = current.getNext()
 
 List = LinkedList()
+List.InsertAtTail('1')
 List.printList()
+print('-------------')
 List.InsertAtHead('A')
 List.InsertAtHead('B')
 List.printList()
+print('-------------')
+List.InsertAtTail('C')
+List.printList()
+print('-------------')
