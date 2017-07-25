@@ -26,6 +26,7 @@ class Node(object):
         self.next = next
 
 
+
 class LinkedList(object):
 
     def __init__(self):
@@ -57,7 +58,13 @@ class LinkedList(object):
             current.setNext(new_node )
 
     def DeleteNode(self, data):
-        pass
+        current = self.head
+
+        while current.next.data != data:
+            current = current.getNext()
+        current.next = current.next.next
+
+
 
     def EmptyList(self):
         print("Starting empty list")
@@ -87,17 +94,21 @@ class LinkedList(object):
             print(current.data)
             current = current.getNext()
 
+print('-- Create list and add \'1\'--')
 List = LinkedList()
 List.InsertAtTail('1')
 List.printList()
-print('-------------')
+print('-- Insert \'A\' & \'B\'-----------')
 List.InsertAtHead('A')
 List.InsertAtHead('B')
 List.printList()
-print('-------------')
+print('-- Insert \'C\'-----------')
 List.InsertAtTail('C')
 List.printList()
-print('-------------')
+print('-- Delete \'A\'-----------')
+List.DeleteNode('A')
+List.printList()
+print('-- Empty the list -----------')
 List.EmptyList()
 print('Size: ', List.size())
 List.printList()
